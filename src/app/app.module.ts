@@ -25,7 +25,8 @@ import { SearchComponent } from './search/search.component';
     HttpClientModule,
     FormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
