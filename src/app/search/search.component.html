@@ -99,7 +99,7 @@
               <div class="doc-info-left">
                 <div class="doctor-img">
                   <a href="doctor-profile.html">
-                    <img src="assets/img/doctors/doctor-thumb-01.jpg"
+                    <img src="assets/img/{{ doctor.image }}"
                       class="img-fluid" alt="User Image">
                   </a>
                 </div>
@@ -174,10 +174,11 @@
                   </ul>
                 </div>
                 <div class="clinic-booking">
-                  <a class="view-pro-btn" href="doctor-profile.html">View
+                  <a class="view-pro-btn"
+                    (click)="getusertById1(doctor._id)">View
                     Profile</a>
-                  <a class="apt-btn" (click)="getusertById(doctor._id)"
-                 >Book Appointment</a>
+                  <a class="apt-btn" (click)="getusertById(doctor._id)">Book
+                    Appointment</a>
                 </div>
               </div>
             </div>

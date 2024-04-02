@@ -10,6 +10,10 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { ListComponent } from './booking/list/list.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +21,11 @@ import { SearchComponent } from './search/search.component';
     SearchComponent,
     HeaderComponent,
     FooterComponent,
-    AppointmentComponent
-  ],
+    AppointmentComponent,
+ListComponent,
+BookingComponent,
+
+],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -26,6 +33,10 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
+        ToastrModule.forRoot(),
+        CommonModule,
+
+
 
   ],
   providers: [],

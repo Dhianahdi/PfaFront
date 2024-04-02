@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
       .subscribe(
         (response) => {
           this.doctors = response;
-
+console.log("this is the data in search component",this.doctors);
         },
         (error) => {
           console.error('Error fetching doctors:', error);
@@ -37,5 +37,15 @@ export class SearchComponent implements OnInit {
   } catch (error) {
     console.error('Error fetching Circuit data:', error);
   }
+}  async getusertById1(Id: string) {
+  try {
+    const response = await this.http.get<any>('http://127.0.0.1:5000/api/user/' +  Id).toPromise();
+    this.sharedService.setSharedVariable(response);
+    this.router.navigate(['/DoctorDeatils']);
+  } catch (error) {
+    console.error('Error fetching Circuit data:', error);
+  }
 }
+
+
 }

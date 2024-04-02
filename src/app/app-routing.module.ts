@@ -8,16 +8,20 @@ import { HomeComponent } from './home/home.component';
 import { DocAvailableComponent } from './doc-available/doc-available.component';
 import { DocScheduleComponent } from './doc-schedule/doc-schedule.component';
 import { BookingComponent } from './booking/booking.component';
+import { DoctorDeatilsComponent } from './doctor-deatils/doctor-deatils.component';
+import { ListComponent } from './booking/list/list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'appointment', component: AppointmentComponent },
+  { path: 'listappointment', component: ListComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'DocAvailable', component: DocAvailableComponent },
   { path: 'DocSchedule', component: DocScheduleComponent },
   { path: 'booking', component: BookingComponent },
+  { path: 'DoctorDeatils', component: DoctorDeatilsComponent },
 
 
 ];
