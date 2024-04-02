@@ -14,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './booking/list/list.component';
 import { BookingComponent } from './booking/booking.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BookingComponent } from './booking/booking.component';
     AppointmentComponent,
 ListComponent,
 BookingComponent,
+ProfileComponent
 
 ],
   imports: [

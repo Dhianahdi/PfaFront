@@ -1,12 +1,95 @@
-import { Component } from '@angular/core';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { SharedServiceService } from '../shared-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
-  standalone: true,
-  imports: [],
+
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
+  user: any ;
+  Email:any;
+  constructor( private router: Router ,private http: HttpClient,private sharedService: SharedServiceService,   ) { }
+  fileToUpload: File | null = null;
 
+
+  onFileSelected(event: any) {
+    this.fileToUpload = event.target.files.item(0);
+    console.log(this.fileToUpload )
+  }
+
+  uploadImage() {
+    if (!this.fileToUpload) return;
+
+    const formData = new FormData();
+    formData.append('image', this.fileToUpload);
+ console.log("i am here");
+    console.log(formData )
+    this.http.post<any>('http://127.0.0.1:5000/api/upload', formData).subscribe(
+      (response) => {
+        // Assuming the response contains the filename of the saved image
+        this.user.image = response.filename;
+        this.updateUser();
+      },
+      (error) => {
+        console.error('Error uploading image:', error);
+      }
+    );
+  }
+
+  ngOnInit(): void {
+    this.getDoctors();
+  }
+
+ async getDoctors() {
+  try {
+    this.Email = localStorage.getItem('key');
+    const response = await this.http.get<any[]>('http://127.0.0.1:5000/api/user/getUserByEmail/' + this.Email).toPromise();
+    this.user = response;
+    console.log("this is the data in search component", this.user);
+  } catch (error) {
+    console.error('Error fetching doctors:', error);
+  }
 }
+
+ updateUser() {
+      this.uploadImage()
+
+    this.user.image = `${this.user._id}.png`;
+
+  this.http.put<any>('http://127.0.0.1:5000/api/user/'+this.user._id, this.user)
+      .subscribe(
+        (response) => {
+          console.log('Appointment added successfully:', response);
+    this.router.navigate([this.router.url]);
+        },
+        (error) => {
+
+          console.error('Error adding appointment:', error);
+        }
+      );}
+
+
+      setloc() {
+      }
+
+
+
+  getFileExtension(filename: string): string {
+    return filename.split('.').pop() || ''; // Get the last part after the last dot
+  }
+
+
+
+
+
+
+
+
+
+      }
+
+
+

@@ -10,6 +10,7 @@ import { DocScheduleComponent } from './doc-schedule/doc-schedule.component';
 import { BookingComponent } from './booking/booking.component';
 import { DoctorDeatilsComponent } from './doctor-deatils/doctor-deatils.component';
 import { ListComponent } from './booking/list/list.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'DocSchedule', component: DocScheduleComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'DoctorDeatils', component: DoctorDeatilsComponent },
+  { path: 'Doctorprofile', component: ProfileComponent },
 
 
 ];
