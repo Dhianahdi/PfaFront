@@ -10,6 +10,8 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-
+    ForgotPasswordComponent,
+    ResetPasswordComponent
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

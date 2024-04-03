@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { DocAvailableComponent } from './doc-available/doc-available.component';
 import { DocScheduleComponent } from './doc-schedule/doc-schedule.component';
 import { BookingComponent } from './booking/booking.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,7 +20,8 @@ const routes: Routes = [
   { path: 'DocAvailable', component: DocAvailableComponent },
   { path: 'DocSchedule', component: DocScheduleComponent },
   { path: 'booking', component: BookingComponent },
-
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
 
 ];
 
