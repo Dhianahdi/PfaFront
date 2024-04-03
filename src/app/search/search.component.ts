@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
   doctors: any ;
+  doctors1:any;
+      specialties: string[] = [];
+
  userLongitude1:any= localStorage.getItem('longitude');
  userLongitude= parseFloat(this.userLongitude1)
 userLatitude1:any=localStorage.getItem('latitude');
@@ -33,6 +36,16 @@ userLatitude1:any=localStorage.getItem('latitude');
 
 
   ngOnInit(): void {
+     this.http.get<any[]>('http://127.0.0.1:5000/api/specialties')
+            .subscribe(
+                (response) => {
+          this.specialties = response.map((specialty: any) => specialty.name);
+                    console.log (this.specialties);
+                },
+                (error) => {
+                    console.error('Error fetching specialties:', error);
+                }
+            );
     this.getDoctors();
   }
 
@@ -51,6 +64,7 @@ userLatitude1:any=localStorage.getItem('latitude');
 
           // Trier les médecins en fonction de leur distance
           this.doctors = response.sort((a, b) => a.distance - b.distance);
+          this.doctors1 = response.sort((a, b) => a.distance - b.distance);
 
           console.log("Les médecins triés par distance:", this.doctors);
         },
@@ -82,6 +96,28 @@ userLatitude1:any=localStorage.getItem('latitude');
     console.error('Error fetching Circuit data:', error);
   }
 }
+filterFunction(doctor: any, selectedSpecialists: string[]): boolean {
+  if(doctor.Specialty)
+{console.log(doctor.Specialty)
+  return selectedSpecialists.includes(doctor.Specialty.name);
 
+}else{
+  return false;
+}
+}
+
+filterBySpecialist() {
+    this.doctors =this.doctors1
+
+  const selectedSpecialists = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="select_specialist"]:checked')).map((checkbox: HTMLInputElement) => checkbox.value);
+    console.log('selectedSpecialists : ', selectedSpecialists);
+if(selectedSpecialists.length>0){
+  this.doctors = this.doctors.filter((doctor: any) => this.filterFunction(doctor, selectedSpecialists));
+  console.log('Filtré : ', this.doctors);
+}else {
+  this.doctors =this.doctors1
+}
+
+}
 
 }

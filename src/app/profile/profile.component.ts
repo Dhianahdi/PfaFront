@@ -12,32 +12,33 @@ export class ProfileComponent implements OnInit {
   user: any ;
   Email:any;
   constructor( private router: Router ,private http: HttpClient,private sharedService: SharedServiceService,   ) { }
-  fileToUpload: File | null = null;
+  fileToUpload: any;
 
-
+imageurl:any= "http://localhost:5000/img/";
   onFileSelected(event: any) {
     this.fileToUpload = event.target.files.item(0);
-    console.log(this.fileToUpload )
   }
 
-  uploadImage() {
-    if (!this.fileToUpload) return;
+ uploadImage() {
+  const formData = new FormData();
+  formData.append('file', this.fileToUpload);
 
-    const formData = new FormData();
-    formData.append('image', this.fileToUpload);
- console.log("i am here");
-    console.log(formData )
-    this.http.post<any>('http://127.0.0.1:5000/api/upload', formData).subscribe(
-      (response) => {
-        // Assuming the response contains the filename of the saved image
-        this.user.image = response.filename;
-        this.updateUser();
-      },
-      (error) => {
-        console.error('Error uploading image:', error);
-      }
-    );
-  }
+
+
+  this.http.post<any>('http://127.0.0.1:5000/api/upload', formData).subscribe(
+    (response) => {
+      console.log (response)
+      // Assuming the response contains the filename of the saved image
+      this.user.image = response.filename;
+      this.updateUser();
+    },
+    (error) => {
+      console.error('Error uploading image:', error);
+    }
+  );
+
+}
+
 
   ngOnInit(): void {
     this.getDoctors();
@@ -55,14 +56,12 @@ export class ProfileComponent implements OnInit {
 }
 
  updateUser() {
-      this.uploadImage()
 
-    this.user.image = `${this.user._id}.png`;
-
+console.log("This is user in update function", this.user);
   this.http.put<any>('http://127.0.0.1:5000/api/user/'+this.user._id, this.user)
       .subscribe(
         (response) => {
-          console.log('Appointment added successfully:', response);
+          console.log('user  successfully:', response);
     this.router.navigate([this.router.url]);
         },
         (error) => {
