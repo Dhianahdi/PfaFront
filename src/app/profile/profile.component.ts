@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SharedServiceService } from '../shared-service.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-profile',
 
@@ -20,7 +21,9 @@ imageurl:any= "http://localhost:5000/img/";
   }
 
  uploadImage() {
+
   const formData = new FormData();
+  if(this.fileToUpload){
   formData.append('file', this.fileToUpload);
 
 
@@ -36,6 +39,8 @@ imageurl:any= "http://localhost:5000/img/";
       console.error('Error uploading image:', error);
     }
   );
+  }else       this.updateUser();
+
 
 }
 
@@ -62,6 +67,8 @@ console.log("This is user in update function", this.user);
       .subscribe(
         (response) => {
           console.log('user  successfully:', response);
+              Swal.fire('Thank you...', 'You submitted succesfully!', 'success')
+
     this.router.navigate([this.router.url]);
         },
         (error) => {
