@@ -57,7 +57,7 @@ import {
   ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-NXS2XVUV.js";
+} from "./chunk-LNXW5KXY.js";
 import {
   __spreadProps,
   __spreadValues
@@ -3716,7 +3716,7 @@ function isPlatformWorkerApp(platformId) {
 function isPlatformWorkerUi(platformId) {
   return platformId === PLATFORM_WORKER_UI_ID;
 }
-var VERSION = new Version("17.3.2");
+var VERSION = new Version("17.3.3");
 var _ViewportScroller = class _ViewportScroller {
 };
 _ViewportScroller.ɵprov = ɵɵdefineInjectable({
@@ -5028,9 +5028,9 @@ export {
 
 @angular/common/fesm2022/common.mjs:
   (**
-   * @license Angular v17.3.2
+   * @license Angular v17.3.3
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-N3ZA7A7M.js.map
+//# sourceMappingURL=chunk-EJASG3H4.js.map

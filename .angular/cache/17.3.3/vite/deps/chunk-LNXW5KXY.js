@@ -10380,7 +10380,7 @@ function createRootComponent(componentView, rootComponentDef, rootDirectives, ho
 }
 function setRootNodeAttributes(hostRenderer, componentDef, hostRNode, rootSelectorOrNode) {
   if (rootSelectorOrNode) {
-    setUpAttributes(hostRenderer, hostRNode, ["ng-version", "17.3.2"]);
+    setUpAttributes(hostRenderer, hostRNode, ["ng-version", "17.3.3"]);
   } else {
     const { attrs, classes } = extractAttrsAndClassesFromSelector(componentDef.selectors[0]);
     if (attrs) {
@@ -17706,7 +17706,7 @@ var Version = class {
     this.patch = parts.slice(2).join(".");
   }
 };
-var VERSION = new Version("17.3.2");
+var VERSION = new Version("17.3.3");
 var _Console = class _Console {
   log(message) {
     console.log(message);
@@ -18078,8 +18078,10 @@ function getInjectorParent(injector) {
     lView = getNodeInjectorLView(injector);
   } else if (injector instanceof NullInjector) {
     return null;
+  } else if (injector instanceof ChainedInjector) {
+    return injector.parentInjector;
   } else {
-    throwError2("getInjectorParent only support injectors of type R3Injector, NodeInjector, NullInjector");
+    throwError2("getInjectorParent only support injectors of type R3Injector, NodeInjector, NullInjector, ChainedInjector");
   }
   const parentLocation = getParentInjectorLocation(tNode, lView);
   if (hasParentInjector(parentLocation)) {
@@ -18107,8 +18109,8 @@ function getModuleInjectorOfNodeInjector(injector) {
   } else {
     throwError2("getModuleInjectorOfNodeInjector must be called with a NodeInjector");
   }
-  const chainedInjector = lView[INJECTOR];
-  const moduleInjector = chainedInjector.parentInjector;
+  const inj = lView[INJECTOR];
+  const moduleInjector = inj instanceof ChainedInjector ? inj.parentInjector : inj.parent;
   if (!moduleInjector) {
     throwError2("NodeInjector must have some connection to the module injector tree");
   }
@@ -22134,14 +22136,14 @@ export {
 
 @angular/core/fesm2022/primitives/signals.mjs:
   (**
-   * @license Angular v17.3.2
+   * @license Angular v17.3.3
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    *)
 
 @angular/core/fesm2022/core.mjs:
   (**
-   * @license Angular v17.3.2
+   * @license Angular v17.3.3
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    *)
@@ -22173,4 +22175,4 @@ export {
    * found in the LICENSE file at https://angular.io/license
    *)
 */
-//# sourceMappingURL=chunk-NXS2XVUV.js.map
+//# sourceMappingURL=chunk-LNXW5KXY.js.map
