@@ -7,12 +7,12 @@ import {
   style,
   transition,
   trigger
-} from "./chunk-BRKDLDFT.js";
+} from "./chunk-BTWKYUC7.js";
 import {
   DOCUMENT,
   Location,
   isPlatformBrowser
-} from "./chunk-N3ZA7A7M.js";
+} from "./chunk-EJASG3H4.js";
 import {
   ANIMATION_MODULE_TYPE,
   APP_ID,
@@ -87,7 +87,7 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate1,
   ɵɵviewQuery
-} from "./chunk-NXS2XVUV.js";
+} from "./chunk-LNXW5KXY.js";
 import {
   BehaviorSubject,
   ConnectableObservable,
@@ -5687,7 +5687,7 @@ function createEmptyStyleRule(query2, nonce) {
     if (!mediaQueryStyleNode) {
       mediaQueryStyleNode = document.createElement("style");
       if (nonce) {
-        mediaQueryStyleNode.nonce = nonce;
+        mediaQueryStyleNode.setAttribute("nonce", nonce);
       }
       mediaQueryStyleNode.setAttribute("type", "text/css");
       document.head.appendChild(mediaQueryStyleNode);
@@ -8288,7 +8288,7 @@ var DialogModule = _DialogModule;
 })();
 
 // node_modules/@angular/cdk/fesm2022/cdk.mjs
-var VERSION = new Version("17.3.2");
+var VERSION = new Version("17.3.3");
 
 // node_modules/@angular/material/fesm2022/core.mjs
 var _c02 = ["*", [["mat-option"], ["ng-container"]]];
@@ -8328,7 +8328,7 @@ function MatOption_Conditional_6_Template(rf, ctx) {
 }
 var _c5 = ["mat-internal-form-field", ""];
 var _c6 = ["*"];
-var VERSION2 = new Version("17.3.2");
+var VERSION2 = new Version("17.3.3");
 var _AnimationCurves = class _AnimationCurves {
 };
 _AnimationCurves.STANDARD_CURVE = "cubic-bezier(0.4,0.0,0.2,1)";
