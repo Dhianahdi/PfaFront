@@ -10,7 +10,9 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
-import { ToastrModule } from 'ngx-toastr';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './booking/list/list.component';
 import { BookingComponent } from './booking/booking.component';
@@ -35,7 +37,9 @@ ProfileComponent
     FormsModule,
     RouterModule,
     AppRoutingModule,
-        ToastrModule.forRoot(),
+    ForgotPasswordComponent,
+    ResetPasswordComponent
+    
         CommonModule,
 
 
