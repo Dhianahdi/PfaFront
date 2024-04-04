@@ -30,6 +30,7 @@ console.log("Form Data",this.formData);
         (response: any) => {
           localStorage.setItem('key', this.formData.email);
           localStorage.setItem('token', response.token);
+          localStorage.setItem('role', response.role);
           console.log('Signup added successfully:', response);
           this.router.navigate(['/search']);
         },

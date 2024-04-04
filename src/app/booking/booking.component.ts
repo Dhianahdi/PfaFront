@@ -2,10 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { SharedServiceService } from '../shared-service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
-import { ToasterService } from '../toaster.service';
+
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-booking',
@@ -19,7 +17,7 @@ export class BookingComponent implements OnInit{
    appointmentDate: string = '';
   appointmentTime: string = '';
 errorMessage:any ='';
-  constructor(private dialog: MatDialog,private http: HttpClient,private sharedService: SharedServiceService, private toasterService: ToasterService,       private router: Router ) {
+  constructor(private dialog: MatDialog,private http: HttpClient,private sharedService: SharedServiceService,       private router: Router ) {
 
   }
 
