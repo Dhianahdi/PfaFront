@@ -37,5 +37,7 @@ onSubmit() {
           console.error('Error adding signup:', error);
           // Handle error here if needed
         }
-      );}
+      );
+    
+    }
 }
