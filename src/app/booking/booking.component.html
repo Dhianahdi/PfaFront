@@ -24,7 +24,7 @@
             <div class="card-body">
               <div class="booking-doc-info">
                 <a href="doctor-profile.html" class="booking-doc-img">
-                  <img src="assets/img/doctors/doctor-thumb-02.jpg"
+                  <img src="assets/img/{{ sharedDatas.image }}"
                     alt="User Image">
                 </a>
                 <div class="booking-info" >
@@ -50,24 +50,27 @@
 
           </div>
 
+<div *ngIf="errorMessage" class="text-danger">
+  {{ errorMessage }}
+</div>
           <div class="card booking-schedule schedule-widget">
 
             <div class="schedule-header">
               <label class="mb-2">Date </label>
               <input class="form-select form-control" id="appt-time"
-                type="date" name="appt-time" value="13:30" />
+                type="date" name="appt-time" value="13:30" [(ngModel)]="appointmentDate"/>
             </div>
 
             <div class="schedule-cont">
               <label class="mb-2">Time </label>
-              <input class="form-select form-control" id="appt-time"
+              <input class="form-select form-control" id="appt-time" [(ngModel)]="appointmentTime"
                 type="time" name="appt-time" value="13:30" />
             </div>
 
           </div>
 
           <div class="submit-section proceed-btn text-end">
-            <a href="checkout.html" class="btn btn-primary submit-btn">Save
+            <a   (click)="addAppointment()" class="btn btn-primary submit-btn">Save
               </a>
           </div>
 

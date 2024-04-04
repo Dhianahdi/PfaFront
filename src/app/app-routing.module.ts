@@ -10,11 +10,15 @@ import { DocScheduleComponent } from './doc-schedule/doc-schedule.component';
 import { BookingComponent } from './booking/booking.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { DoctorDeatilsComponent } from './doctor-deatils/doctor-deatils.component';
+import { ListComponent } from './booking/list/list.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'appointment', component: AppointmentComponent },
+  { path: 'listappointment', component: ListComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'DocAvailable', component: DocAvailableComponent },
@@ -22,6 +26,9 @@ const routes: Routes = [
   { path: 'booking', component: BookingComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'DoctorDeatils', component: DoctorDeatilsComponent },
+  { path: 'Doctorprofile', component: ProfileComponent },
+
 
 ];
 

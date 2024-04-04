@@ -2,19 +2,24 @@ import { HttpClient } from '@angular/common/http';
 import { SharedServiceService } from '../shared-service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
+import { ToasterService } from '../toaster.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-booking',
-  standalone: true,
-  imports: [],
+
   templateUrl: './booking.component.html',
   styleUrl: './booking.component.css'
 })
 export class BookingComponent implements OnInit{
  sharedDatas: any;
   formData: any = {};
-
-  constructor(private http: HttpClient,private sharedService: SharedServiceService,        private router: Router ) {
+   appointmentDate: string = '';
+  appointmentTime: string = '';
+errorMessage:any ='';
+  constructor(private dialog: MatDialog,private http: HttpClient,private sharedService: SharedServiceService, private toasterService: ToasterService,       private router: Router ) {
 
   }
 
@@ -22,7 +27,39 @@ export class BookingComponent implements OnInit{
   ngOnInit(): void {
       console.log(this.sharedService.getSharedVariable());
 
-    // Subscribe to the Observable to get the response data
    this.sharedDatas = this.sharedService.getSharedVariable()
   }
+
+
+
+  addAppointment() {
+    const patientEmail = localStorage.getItem('key');
+
+    const dateTimeString = `${this.appointmentDate}T${this.appointmentTime}:00`;
+    console.log(dateTimeString);
+    console.log(patientEmail);
+const appointmentData = {
+  dateTime: dateTimeString,
+  patientEmail: patientEmail,
+doctorId: this.sharedDatas._id,
+
+};    console.log(appointmentData);
+
+    this.http.post<any>('http://127.0.0.1:5000/api/appointment/addAppointment', appointmentData)
+      .subscribe(
+        (response) => {
+          console.log('Appointment added successfully:', response);
+this.router.navigate(['/listappointment']);
+        },
+        (error) => {
+          this.errorMessage = 'Error occurred while saving appointment.';
+
+          console.error('Error adding appointment:', error);
+        }
+      );
+  }
+
+
+
 }
+

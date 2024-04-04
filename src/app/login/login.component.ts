@@ -16,26 +16,25 @@ formData: any = {};
 
   constructor(private http: HttpClient,private router: Router) { }
 
-onSubmit() {
+  onSubmit() {
+    // Retrieve longitude and latitude from local storage
+    const longitude = localStorage.getItem('longitude');
+    const latitude = localStorage.getItem('latitude');
 
-
-
-    console.log('signup added successfully:', this.formData);
-
+    // Assuming this.formData contains other form data
+    this.formData.longitude = longitude;
+    this.formData.latitude = latitude;
+console.log("Form Data",this.formData);
     this.http.post('http://127.0.0.1:5000/api/user/login', this.formData)
       .subscribe(
-
-        (response:any) => {
+        (response: any) => {
           localStorage.setItem('key', this.formData.email);
-
-        localStorage.setItem('token', response.token)
-
-          console.log('signup added successfully:', response);
-         this.router.navigate(['/search']);
+          localStorage.setItem('token', response.token);
+          console.log('Signup added successfully:', response);
+          this.router.navigate(['/search']);
         },
         (error) => {
-                    alert("Verifier les parametres");
-
+          alert('Verifier les parametres');
           console.error('Error adding signup:', error);
           // Handle error here if needed
         }
