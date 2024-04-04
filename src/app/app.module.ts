@@ -38,9 +38,8 @@ ProfileComponent
     RouterModule,
     AppRoutingModule,
     ForgotPasswordComponent,
-    ResetPasswordComponent
-    
-        CommonModule,
+    ResetPasswordComponent,
+    CommonModule,
 
 
 
