@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { ListComponent } from './booking/list/list.component';
 import { BookingComponent } from './booking/booking.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DocAvailableComponent } from './doc-available/doc-available.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProfileComponent } from './profile/profile.component';
     AppointmentComponent,
 ListComponent,
 BookingComponent,
-ProfileComponent
+ProfileComponent,
+
 
 ],
   imports: [
@@ -38,9 +40,10 @@ ProfileComponent
     RouterModule,
     AppRoutingModule,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    CommonModule
 
-        
+
 
 
 

@@ -13,21 +13,37 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { DoctorDeatilsComponent } from './doctor-deatils/doctor-deatils.component';
 import { ListComponent } from './booking/list/list.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LayoutComponent } from './layout/layout.component';
+import { LayoutuserComponent } from './layoutuser/layoutuser.component';
+import { LayoutDocComponent } from './layout-doc/layout-doc.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'appointment', component: AppointmentComponent },
-  { path: 'listappointment', component: ListComponent },
-  { path: 'register', component: RegisterComponent },
+    { path: '', component: LayoutComponent, children: [
+    { path: '', component: HomeComponent },
+      { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'DocAvailable', component: DocAvailableComponent },
-  { path: 'DocSchedule', component: DocScheduleComponent },
-  { path: 'booking', component: BookingComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+  ]},
+     { path: '', component: LayoutuserComponent, children: [
+  { path: 'search', component: SearchComponent },
+    { path: 'listappointment', component: ListComponent },
+      { path: 'booking', component: BookingComponent },
   { path: 'DoctorDeatils', component: DoctorDeatilsComponent },
+
+
+  ]},
+
+  { path: '', component: LayoutDocComponent, children: [
+  { path: 'appointment', component: AppointmentComponent },
+  { path: 'DocAvailable', component: DocAvailableComponent },
+  { path: 'DocSchedule', component: DocScheduleComponent },
   { path: 'Doctorprofile', component: ProfileComponent },
+
+
+  ]},
+
+
 
 
 ];
