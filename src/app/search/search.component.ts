@@ -58,7 +58,6 @@ userLatitude1:any=localStorage.getItem('latitude');
 
           // Calculer la distance entre l'utilisateur et chaque médecin
           response.forEach(doctor => {
-            console.log (this.userLongitude, this.userLatitude, doctor.geolocalisation.longitude, doctor.geolocalisation.latitude);
             doctor.distance = this.calculateDistance(this.userLongitude, this.userLatitude, doctor.geolocalisation.longitude, doctor.geolocalisation.latitude);
           });
 
