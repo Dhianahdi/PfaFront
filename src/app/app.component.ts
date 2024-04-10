@@ -12,11 +12,8 @@ export class AppComponent implements  OnInit{
 
     navigator.geolocation.getCurrentPosition((position)=>{
       console.log( position.coords);
-localStorage.setItem("latitude", String(position.coords.latitude));
-localStorage.setItem("longitude", String(position.coords.longitude));
-      console.log( "position.coords");
-
-
+      localStorage.setItem("latitude", String(position.coords.latitude));
+      localStorage.setItem("longitude", String(position.coords.longitude));
     })
   }
 }

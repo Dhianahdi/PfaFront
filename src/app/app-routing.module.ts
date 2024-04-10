@@ -15,16 +15,20 @@ import { ListComponent } from './booking/list/list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutAdminComponent } from './layout-admin/layout-admin.component';
+import { DoctorListComponent } from './doctor-list/doctor-list.component';
+
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children: [
+    { path: '', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'reset-password', component: ResetPasswordComponent },
   ]
 },
-{ path: 'admin', component: LayoutAdminComponent, children: [
+{ path: '', component: LayoutAdminComponent, children: [
+      { path: 'doctor-list', component: DoctorListComponent },
 
 ]
 },
