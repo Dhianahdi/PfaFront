@@ -14,6 +14,9 @@ import { CommonModule } from '@angular/common';
 import { ListComponent } from './booking/list/list.component';
 import { BookingComponent } from './booking/booking.component';
 import { ProfileComponent } from './profile/profile.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -35,9 +38,12 @@ import { ProfileComponent } from './profile/profile.component';
     RouterModule,
     AppRoutingModule,
     CommonModule,
+    MatDialogModule,
   ],
 
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,13 @@
+.page-wrapper{
+    padding-top: 20px;
+}
+.but{
+    margin-bottom: 20px;
+    margin-right:20px;
+
+}
+.card-body{
+    mat-form-field{
+        width: 100%;
+    }
+}

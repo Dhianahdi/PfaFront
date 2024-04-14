@@ -1,0 +1,67 @@
+<div mat-dialog-title>
+    <h1>Doctor Form</h1>
+</div>
+
+<form (ngSubmit)="onFormSubmit()">
+
+<div mat-dialog-content class="content">
+    <div class="row">
+        <div class="col">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input name="prenom" [(ngModel)]="formData.prenom" matInput type="text" placeholder="EX. John">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input name="nom" [(ngModel)]="formData.nom" matInput type="text" placeholder="EX.Doe">
+            </mat-form-field>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input name="telephone" [(ngModel)]="formData.telephone" matInput type="text" placeholder="EX. 58123456">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Speciality</mat-label>
+                    <mat-select [(ngModel)]="formData.Specialty" name="specialty">
+                        <mat-option *ngFor="let specialty of specialities" [value]="specialty._id">
+                            {{ specialty.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+    <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input name="email" [(ngModel)]="formData.email" matInput type="email" placeholder="EX. john.doe@gmail.com">
+            </mat-form-field>
+    </div>
+
+
+    <div class="row" *ngIf="!data">
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input name="password" [(ngModel)]="formData.password" matInput type="text" placeholder="EX. jhe7#1_jz84">
+        </mat-form-field>
+    </div>
+
+
+
+
+</div>
+
+<div mat-dialog-actions class="action">
+    <button mat-raised-button color="decline" type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="accept" type="submit">{{data ? 'Update' : 'Save'}}</button>
+</div>
+
+</form>

@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-raised-button.mat-customized{
+    background-color: #0e82fd !important;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 500;
+    font-family:  'Roboto', sans-serif;
+}
+
+/* Ajoutez ce style dans votre fichier CSS global ou dans le composant où vous utilisez MatSnackBar */
+.cdk-overlay-container {
+    z-index: 9999;
+    /* Augmentez ce nombre si nécessaire pour être au-dessus de votre navbar header */
+}
+
+.mat-mdc-raised-button.mat-accept {
+    background-color: #0ea407 !important;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+}
+
+.mat-mdc-raised-button.mat-decline {
+    background-color: #e7321a !important;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+}
+
+.mat-mdc-raised-button.mat-edit {
+    background-color: #2099ea !important;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+}

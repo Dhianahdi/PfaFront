@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {NgAlertBoxComponent} from "ng-alert-box-popup";
 
 @Component({
   selector: 'app-reset-password',
