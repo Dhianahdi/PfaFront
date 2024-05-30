@@ -3,7 +3,6 @@ import { SharedServiceService } from '../shared-service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ToasterService } from '../toaster.service';
 
 @Component({
   selector: 'app-doctor-deatils',
@@ -17,7 +16,7 @@ sharedDatas: any;
   formData: any = {};
    appointmentDate: string = '';
   appointmentTime: string = '';
-  constructor(private http: HttpClient,private sharedService: SharedServiceService, private toasterService: ToasterService,       private router: Router ) {
+  constructor(private http: HttpClient,private sharedService: SharedServiceService,        private router: Router ) {
 
   }
 

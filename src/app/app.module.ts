@@ -16,7 +16,10 @@ import { BookingComponent } from './booking/booking.component';
 import { ProfileComponent } from './profile/profile.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
+import { DocAvailableComponent } from './doc-available/doc-available.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     AppointmentComponent,
     ListComponent,
     BookingComponent,
-    ProfileComponent
+    ProfileComponent,
+
 ],
 
   imports: [
@@ -37,6 +41,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     RouterModule,
     AppRoutingModule,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
     CommonModule,
     MatDialogModule,
   ],

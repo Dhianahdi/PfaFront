@@ -19,9 +19,14 @@
     "@angular/material": "^17.3.3",
     "@angular/platform-browser": "^17.1.0",
     "@angular/platform-browser-dynamic": "^17.1.0",
+<<<<<<< HEAD
     "@angular/router": "^17.3.3",
-    "ngx-toastr": "^18.0.0",
+=======
+    "@angular/router": "^17.1.0",
+    "ng-alert-box-popup": "^0.0.11",
     "rxjs": "~7.8.0",
+>>>>>>> origin/dhia
+    "ngx-toastr": "^18.0.0",
     "sweetalert2": "^11.10.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

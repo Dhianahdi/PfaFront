@@ -16,7 +16,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutAdminComponent } from './layout-admin/layout-admin.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
-
+import { LayoutuserComponent } from './layoutuser/layoutuser.component';
+import { LayoutDocComponent } from './layout-doc/layout-doc.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children: [
@@ -32,18 +33,30 @@ const routes: Routes = [
 
 ]
 },
-  { path: '', component: HomeComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'appointment', component: AppointmentComponent },
-  { path: 'listappointment', component: ListComponent },
+    { path: '', component: LayoutComponent, children: [
+    { path: '', component: HomeComponent },
+    
 
+
+  ]},
+     { path: '', component: LayoutuserComponent, children: [
+  { path: 'search', component: SearchComponent },
+    { path: 'listappointment', component: ListComponent },
+      { path: 'booking', component: BookingComponent },
+  { path: 'DoctorDeatils', component: DoctorDeatilsComponent },
+
+
+  ]},
+
+  { path: '', component: LayoutDocComponent, children: [
+  { path: 'appointment', component: AppointmentComponent },
   { path: 'DocAvailable', component: DocAvailableComponent },
   { path: 'DocSchedule', component: DocScheduleComponent },
-  { path: 'booking', component: BookingComponent },
-
-
-  { path: 'DoctorDeatils', component: DoctorDeatilsComponent },
   { path: 'Doctorprofile', component: ProfileComponent },
+
+
+  ]},
+
 
 
 

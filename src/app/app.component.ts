@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements  OnInit{
   title = 'PfaFront';
+  auth:any;
    ngOnInit(){
 
+this.auth =localStorage.getItem("key");
+      console.log( this.auth);
 
     navigator.geolocation.getCurrentPosition((position)=>{
       //console.log( position.coords);
