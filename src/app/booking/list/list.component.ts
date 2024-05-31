@@ -12,11 +12,26 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class ListComponent implements  OnInit {
     appoint: any ;
-
+ user: any ;
+  Email:any;
   constructor(private http: HttpClient,       private router: Router ) {
   }
+     async getDoctors() {
+  try {
+    this.Email = localStorage.getItem('key');
+    const response = await this.http.get<any[]>('http://127.0.0.1:5000/api/user/getUserByEmail/' + this.Email).toPromise();
+    this.user = response;
+
+
+
+    console.log("this is the data in search component", this.user);
+  } catch (error) {
+    console.error('Error fetching doctors:', error);
+  }
+}
 ngOnInit(): void {
   const patientEmail: any = localStorage.getItem('key');
+    this.getDoctors()
 
   this.http.get<any[]>('http://127.0.0.1:5000/api/appointment/getAppointmentsByUserEmail/' + patientEmail)
     .pipe(
@@ -60,6 +75,29 @@ formatTime(date: Date): string {
   return new Intl.DateTimeFormat('en-US', options).format(date);
 }
 
+  async getusertById(Id: string,Idp: string) {
+    localStorage.setItem('shared', Id);
+    localStorage.setItem('rdv', Idp);
+    this.router.navigate(['/booking']);
 
+  }
+ deleteAppointment(appointmentId: string): void {
+    const apiUrl = `http://127.0.0.1:5000/api/appointment/${appointmentId}`;
+
+    // Send HTTP DELETE request
+    this.http.delete(apiUrl)
+      .subscribe(
+        (response) => {
+                    window.location.reload();
+
+          console.log('Appointment deleted successfully:', response);
+          // Handle success, such as removing the appointment from the UI
+        },
+        (error) => {
+          console.error('Error deleting appointment:', error);
+          // Handle error, such as displaying an error message to the user
+        }
+      );
+  }
 
 }
