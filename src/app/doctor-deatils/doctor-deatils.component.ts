@@ -3,11 +3,12 @@ import { SharedServiceService } from '../shared-service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-doctor-deatils',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './doctor-deatils.component.html',
   styleUrl: './doctor-deatils.component.css'
 })

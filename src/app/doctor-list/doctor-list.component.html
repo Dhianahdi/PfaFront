@@ -1,3 +1,186 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="The responsive professional Doccure template offers many features, like scheduling appointments with  top doctors, clinics, and hospitals via voice, video call & chat.">
+    <meta name="keywords"
+        content="practo clone, doccure, doctor appointment, Practo clone html template, doctor booking template">
+    <meta name="author" content="Practo Clone HTML Template - Doctor Booking Template">
+    <meta property="og:url" content="https://doccure.dreamstechnologies.com/html/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Doctors Appointment HTML Website Templates | Doccure">
+    <meta property="og:description"
+        content="The responsive professional Doccure template offers many features, like scheduling appointments with  top doctors, clinics, and hospitals via voice, video call & chat.">
+    <meta property="og:image" content="../../assets/admin/img/preview-banner.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="https://doccure.dreamstechnologies.com/html/">
+    <meta property="twitter:url" content="https://doccure.dreamstechnologies.com/html/">
+    <meta name="twitter:title" content="Doctors Appointment HTML Website Templates | Doccure">
+    <meta name="twitter:description"
+        content="The responsive professional Doccure template offers many features, like scheduling appointments with  top doctors, clinics, and hospitals via voice, video call & chat.">
+    <meta name="twitter:image" content="../../assets/admin/img/preview-banner.html">
+    <title>Doccure - Doctor List Page</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/admin/img/favicon.png">
+
+    <link rel="stylesheet" href="../../assets/admin/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../assets/admin/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../../assets/admin/plugins/fontawesome/css/all.min.css">
+
+    <link rel="stylesheet" href="../../assets/admin/css/feathericon.min.css">
+
+    <!-- <link rel="stylesheet" href="../../assets/admin/plugins/datatables/datatables.min.css"> -->
+
+    <link rel="stylesheet" href="../../assets/admin/css/custom.css">
+
+
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="header">
+
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="../../assets/admin/img/logo.png" alt="Logo">
+                </a>
+                <a href="index.html" class="logo logo-small">
+                    <img src="../../assets/admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                </a>
+            </div>
+
+            <!-- <a href="javascript:void(0);" id="toggle_btn">
+                <i class="fe fe-text-align-left"></i>
+            </a>
+            <div class="top-nav-search">
+                <form>
+                    <input type="text" class="form-control" placeholder="Search here">
+                    <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div> -->
+
+            <a class="mobile_btn" id="mobile_btn">
+                <i class="fa fa-bars"></i>
+            </a>
+
+
+            <ul class="nav user-menu">
+
+                <li class="nav-item dropdown noti-dropdown">
+                    <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+                        <i class="fe fe-bell"></i> <span class="badge rounded-pill">3</span>
+                    </a>
+                    <div class="dropdown-menu notifications">
+                        <div class="topnav-dropdown-header">
+                            <span class="notification-title">Notifications</span>
+                            <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+                        </div>
+                        <div class="noti-content">
+                            <ul class="notification-list">
+                                <li class="notification-message">
+                                    <a href="#">
+                                        <div class="notify-block d-flex">
+                                            <span class="avatar avatar-sm flex-shrink-0">
+                                                <img class="avatar-img rounded-circle" alt="User Image"
+                                                    src="../../assets/admin/img/doctors/doctor-thumb-01.jpg">
+                                            </span>
+                                            <div class="media-body flex-grow-1">
+                                                <p class="noti-details"><span class="noti-title">Dr. Ruby Perrin</span>
+                                                    Schedule <span class="noti-title">her appointment</span></p>
+                                                <p class="noti-time"><span class="notification-time">4 mins ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="#">
+                                        <div class="notify-block d-flex">
+                                            <span class="avatar avatar-sm flex-shrink-0">
+                                                <img class="avatar-img rounded-circle" alt="User Image"
+                                                    src="../../assets/admin/img/patients/patient1.jpg">
+                                            </span>
+                                            <div class="media-body flex-grow-1">
+                                                <p class="noti-details"><span class="noti-title">Charlene Reed</span>
+                                                    has booked her appointment to <span class="noti-title">Dr. Ruby
+                                                        Perrin</span></p>
+                                                <p class="noti-time"><span class="notification-time">6 mins ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="#">
+                                        <div class="notify-block d-flex">
+                                            <span class="avatar avatar-sm flex-shrink-0">
+                                                <img class="avatar-img rounded-circle" alt="User Image"
+                                                    src="../../assets/admin/img/patients/patient2.jpg">
+                                            </span>
+                                            <div class="media-body flex-grow-1">
+                                                <p class="noti-details"><span class="noti-title">Travis Trimble</span>
+                                                    sent a amount of $210 for his <span
+                                                        class="noti-title">appointment</span></p>
+                                                <p class="noti-time"><span class="notification-time">8 mins ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="#">
+                                        <div class="notify-block d-flex">
+                                            <span class="avatar avatar-sm flex-shrink-0">
+                                                <img class="avatar-img rounded-circle" alt="User Image"
+                                                    src="../../assets/admin/img/patients/patient3.jpg">
+                                            </span>
+                                            <div class="media-body flex-grow-1">
+                                                <p class="noti-details"><span class="noti-title">Carl Kelly</span> send
+                                                    a message <span class="noti-title"> to his doctor</span></p>
+                                                <p class="noti-time"><span class="notification-time">12 mins ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="topnav-dropdown-footer">
+                            <a href="#">View all Notifications</a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+                        <span class="user-img"><img class="rounded-circle"
+                                src="../../assets/admin/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="user-header">
+                            <div class="avatar avatar-sm">
+                                <img src="../../assets/admin/img/profiles/avatar-01.jpg" alt="User Image"
+                                    class="avatar-img rounded-circle">
+                            </div>
+                            <div class="user-text">
+                                <h6>Ryan Taylor</h6>
+                                <p class="text-muted mb-0">Administrator</p>
+                            </div>
+                        </div>
+                        <a class="dropdown-item primary" href="profile.html">My Profile</a>
+                        <a class="dropdown-item primary" href="settings.html">Settings</a>
+                        <a class="dropdown-item primary" href="login.html">Logout</a>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
 <div class="page-wrapper">
     <div class="content container-fluid">
 
@@ -70,3 +253,51 @@
         </div>
     </div>
 </div>
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+                <li class="menu-title">
+                    <span>Main</span>
+                </li>
+                <li class="sidebar-item">
+                    <a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                </li>
+                <li class="sidebar-item">
+                    <a (click)="navigateSpecialities()"><i class="fe fe-users"></i> <span>Specialities</span></a>
+                </li>
+                <li class="active">
+                    <a (click)="navigateDoctors()"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
+                </li>
+                <li class="sidebar-item logout-btn">
+                    <a href="/"><i class="fe fe-logout"></i> <span>LogOut</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+<script src="../../assets/admin/js/jquery-3.7.1.min.js" type="4024bb0f32a84f4b7f6a4d7d-text/javascript"></script>
+
+<script src="../../assets/admin/js/bootstrap.bundle.min.js" type="4024bb0f32a84f4b7f6a4d7d-text/javascript"></script>
+
+<script src="../../assets/admin/plugins/slimscroll/jquery.slimscroll.min.js"
+    type="4024bb0f32a84f4b7f6a4d7d-text/javascript"></script>
+
+<script src="../../assets/admin/plugins/datatables/jquery.dataTables.min.js"
+    type="4024bb0f32a84f4b7f6a4d7d-text/javascript"></script>
+<script src="../../assets/admin/plugins/datatables/datatables.min.js"
+    type="4024bb0f32a84f4b7f6a4d7d-text/javascript"></script>
+
+<script src="../../assets/admin/js/script.js" type="4024bb0f32a84f4b7f6a4d7d-text/javascript"></script>
+<script src="../../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+    data-cf-settings="4024bb0f32a84f4b7f6a4d7d-|49" defer></script>
+</body>

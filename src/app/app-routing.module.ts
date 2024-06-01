@@ -18,6 +18,7 @@ import { LayoutAdminComponent } from './layout-admin/layout-admin.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { LayoutuserComponent } from './layoutuser/layoutuser.component';
 import { LayoutDocComponent } from './layout-doc/layout-doc.component';
+import { SpecialitiesListComponent } from './specialities-list/specialities-list.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children: [
@@ -29,7 +30,8 @@ const routes: Routes = [
   ]
 },
 { path: '', component: LayoutAdminComponent, children: [
-      { path: 'doctor-list', component: DoctorListComponent },
+
+
 
 ]
 },
@@ -39,6 +41,8 @@ const routes: Routes = [
 
 
   ]},
+  { path: 'doctor-list', component: DoctorListComponent },   
+   { path: 'specialities-list', component: SpecialitiesListComponent },
      { path: '', component: LayoutuserComponent, children: [
   { path: 'search', component: SearchComponent },
     { path: 'listappointment', component: ListComponent },

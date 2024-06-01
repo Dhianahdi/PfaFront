@@ -74,6 +74,10 @@ userLatitude1:any=localStorage.getItem('latitude');
   }
 
   private calculateDistance(lon1: number, lat1: number, lon2: number, lat2: number) {
+    console.log('lat2: ', lat2);
+    console.log('lon2: ', lon2);
+    console.log('lat1: ', lat1);
+    console.log('lon1: ', lon1);
     // Par exemple, la formule de la distance euclidienne
      console.log(Math.sqrt(Math.pow(lon2 - lon1, 2) + Math.pow(lat2 - lat1, 2)))
     return Math.sqrt(Math.pow(lon2 - lon1, 2) + Math.pow(lat2 - lat1, 2));

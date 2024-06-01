@@ -11,7 +11,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import Swal from 'sweetalert2';
 import { CoreService } from '../core/core.service';
@@ -20,7 +20,7 @@ import { CoreService } from '../core/core.service';
 @Component({
   selector: 'app-doctor-list',
   standalone: true,
-  imports: [CommonModule,MatToolbarModule,MatButtonModule,MatIconModule,MatTableModule,MatPaginatorModule,
+  imports: [RouterOutlet,CommonModule,MatToolbarModule,MatButtonModule,MatIconModule,MatTableModule,MatPaginatorModule,
   MatSortModule,MatInputModule,MatFormFieldModule,MatSnackBarModule],
   templateUrl: './doctor-list.component.html',
   styleUrls: ['./doctor-list.component.css'],
@@ -38,7 +38,8 @@ export class DoctorListComponent implements OnInit {
 
   constructor(private http: HttpClient,
     private _dialog: MatDialog,
-    private _coreService : CoreService
+    private _coreService : CoreService,
+    private router : Router
   ) { } // Injectez MatDialog ici
 
   ngOnInit(): void {
@@ -128,6 +129,14 @@ export class DoctorListComponent implements OnInit {
       }
     })
   }
+
+      navigateDoctors(){
+          this.router.navigate(['/doctor-list']);
+    }
+
+    navigateSpecialities(){
+          this.router.navigate(['/specialities-list']);
+    }
   
   
   openEditdoctorForm(data: any){

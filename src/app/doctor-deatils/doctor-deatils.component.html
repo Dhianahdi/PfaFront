@@ -89,19 +89,19 @@
             <div class="doc-info-right">
               <div class="clini-infos">
                 <ul>
-                  <li><i class="far fa-thumbs-up"></i> 99%</li>
+                  <!-- <li><i class="far fa-thumbs-up"></i> 99%</li>
                   <li><i class="far fa-comment"></i> 35 Feedback</li>
                   <li><i class="fas fa-map-marker-alt"></i> Newyork, USA</li>
-                  <li><i class="far fa-money-bill-alt"></i> $100 per hour </li>
+                  <li><i class="far fa-money-bill-alt"></i> $100 per hour </li> -->
                 </ul>
               </div>
               <div class="doctor-action">
-                <a href="javascript:void(0)" class="btn btn-white fav-btn">
+                <!-- <a href="javascript:void(0)" class="btn btn-white fav-btn">
                   <i class="far fa-bookmark"></i>
                 </a>
                 <a href="chat.html" class="btn btn-white msg-btn">
                   <i class="far fa-comment-alt"></i>
-                </a>
+                </a> -->
 
               </div>
               <div class="clinic-booking">
@@ -194,20 +194,46 @@
                   </div>
 
                   <div class="col-md-4">
-                    <div class="clinic-timing">
-                      <div>
-                        <p class="timings-days">
-                          <span> Mon - Fri </span>
-                        </p>
-                        <p class="timings-times">
-                          <span> {{ sharedDatas.availability.normalDays.startTime }}
-                             </span>
-                          <span> {{ sharedDatas.availability.normalDays.endTime }}
-                          </span>
-                        </p>
-                      </div>
+<div class="clinic-timing">
+  <div>
+    <p class="timings-days">
+      <span> Monday- Friday </span>
+    </p>
+    <p class="timings-times" *ngIf="sharedDatas.availability.normalDays.isAvailable; else closedTemplate">
+      <span> {{ sharedDatas.availability.normalDays.startTime }} </span>
+      <span> {{ sharedDatas.availability.normalDays.endTime }} </span>
+    </p>
+    <!-- <div class="time-items">
+      <span class="time"><span class="badge bg-danger-light">Closed</span></span>
+    </div> -->
+    <ng-template #closedTemplate>
+      <span class="time"><span class="badge bg-danger-light">Closed</span></span>
+    </ng-template>
 
-                    </div>
+    <p class="timings-days">
+      <span> Saturday </span>
+    </p>
+    <p class="timings-times" *ngIf="sharedDatas.availability.saturday.isAvailable; else closedTemplateSat">
+      <span> {{ sharedDatas.availability.saturday.startTime }} </span>
+      <span> {{ sharedDatas.availability.saturday.endTime }} </span>
+    </p>
+    <ng-template #closedTemplateSat>
+      <span>Closed</span>
+    </ng-template>
+
+        <p class="timings-days">
+          <span> Sunday </span>
+        </p>
+        <p class="timings-times" *ngIf="sharedDatas.availability.sunday.isAvailable; else closedTemplate">
+          <span> {{ sharedDatas.availability.sunday.startTime }} </span>
+          <span> {{ sharedDatas.availability.sunday.endTime }} </span>
+        </p>
+        <ng-template #closedTemplate>
+          <span>Closed</span>
+        </ng-template>
+  </div>
+</div>
+
                   </div>
 
                   <div class="col-md-2">

@@ -1,0 +1,47 @@
+<div mat-dialog-title>
+    <h1>Doctor Form</h1>
+</div>
+
+<form (ngSubmit)="onFormSubmit()">
+
+    <div mat-dialog-content class="content">
+        <div class="row">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input name="name" [(ngModel)]="formData.name" matInput type="text" placeholder="EX. Dentist">
+                </mat-form-field>
+            </div>
+
+    
+       
+
+        <div class="row">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <input name="description" [(ngModel)]="formData.description" matInput type="text"
+                        placeholder="EX. Dentists diagnose and treat problems with patients' teeth, gums, and related parts of the mouth">
+                </mat-form-field>
+            
+        
+        </div>
+
+        </div>
+
+     
+
+
+       
+
+
+
+
+    
+
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button color="decline" type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="accept" type="submit">{{data ? 'Update' : 'Save'}}</button>
+    </div>
+
+</form>

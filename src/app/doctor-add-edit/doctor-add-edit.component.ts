@@ -45,6 +45,7 @@ selectedSpecialty: string = '';
           //console.log('response: ', response);
 
           this.specialities = response; // stocke les données des médecins dans la propriété doctors du composant
+          console.log('response: ', response);
         },
         (error) => {
           console.error('Erreur lors de la récupération des spécialités:', error);
