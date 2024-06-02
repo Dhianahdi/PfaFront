@@ -4,27 +4,45 @@
 
 <form (ngSubmit)="onFormSubmit()">
 
-<div mat-dialog-content class="content">
-    <div class="row">
-        <div class="col">
-            <mat-form-field appearance="outline">
-                <mat-label>First Name</mat-label>
-                <input name="prenom" [(ngModel)]="formData.prenom" matInput type="text" placeholder="EX. John">
-            </mat-form-field>
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input name="prenom" [(ngModel)]="formData.prenom" matInput type="text" placeholder="EX. John">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input name="nom" [(ngModel)]="formData.nom" matInput type="text" placeholder="EX. Doe">
+                </mat-form-field>
+            </div>
         </div>
-        <div class="col">
-            <mat-form-field appearance="outline">
-                <mat-label>Last Name</mat-label>
-                <input name="nom" [(ngModel)]="formData.nom" matInput type="text" placeholder="EX.Doe">
-            </mat-form-field>
-        </div>
-    </div>
 
         <div class="row">
             <div class="col">
                 <mat-form-field appearance="outline">
                     <mat-label>Phone Number</mat-label>
-                    <input name="telephone" [(ngModel)]="formData.telephone" matInput type="text" placeholder="EX. 58123456">
+                    <input name="telephone" [(ngModel)]="formData.telephone" matInput type="text"
+                        placeholder="EX. 58123456">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Secondary Phone Number</mat-label>
+                    <input name="telephone_2" [(ngModel)]="formData.telephone_2" matInput type="text"
+                        placeholder="EX. 58123457">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Third Phone Number</mat-label>
+                    <input name="telephone_3" [(ngModel)]="formData.telephone_3" matInput type="text"
+                        placeholder="EX. 58123458">
                 </mat-form-field>
             </div>
             <div class="col">
@@ -39,29 +57,66 @@
             </div>
         </div>
 
-    <div class="row">
+        <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>E-mail</mat-label>
-                <input name="email" [(ngModel)]="formData.email" matInput type="email" placeholder="EX. john.doe@gmail.com">
+                <input name="email" [(ngModel)]="formData.email" matInput type="email"
+                    placeholder="EX. john.doe@gmail.com">
             </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Gouvernorat</mat-label>
+                <input name="gouvernorat" [(ngModel)]="formData.gouvernorat" matInput type="text"
+                    placeholder="EX. Tunis">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Avenue</mat-label>
+                <input name="avenue" [(ngModel)]="formData.avenue" matInput type="text"
+                    placeholder="EX. Avenue Habib Bourguiba">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Code Postal</mat-label>
+                <input name="code_postal" [(ngModel)]="formData.code_postal" matInput type="text"
+                    placeholder="EX. 1000">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Latitude</mat-label>
+                    <input name="latitude" [(ngModel)]="formData.latitude" matInput type="number"
+                        placeholder="EX. 36.8065">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Longitude</mat-label>
+                    <input name="longitude" [(ngModel)]="formData.longitude" matInput type="number"
+                        placeholder="EX. 10.1815">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="!data">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input name="password" [(ngModel)]="formData.password" matInput type="text"
+                    placeholder="EX. jhe7#1_jz84">
+            </mat-form-field>
+        </div>
     </div>
 
-
-    <div class="row" *ngIf="!data">
-        <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input name="password" [(ngModel)]="formData.password" matInput type="text" placeholder="EX. jhe7#1_jz84">
-        </mat-form-field>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button color="decline" type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="accept" type="submit">{{data ? 'Update' : 'Save'}}</button>
     </div>
-
-
-
-
-</div>
-
-<div mat-dialog-actions class="action">
-    <button mat-raised-button color="decline" type="button" [mat-dialog-close]="false">Cancel</button>
-    <button mat-raised-button color="accept" type="submit">{{data ? 'Update' : 'Save'}}</button>
-</div>
-
 </form>

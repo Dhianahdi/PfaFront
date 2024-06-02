@@ -87,4 +87,26 @@ Swal.fire({
       );
   }
 
+      navigateAppointements(){
+          this.router.navigate(['/appointment']);
+    }
+    navigateDocAvailable(){
+          this.router.navigate(['/DocAvailable']);
+    }
+    navigatequestions(){
+          this.router.navigate(['/questions']);
+    }
+    navigatepatientslist(){
+          this.router.navigate(['/patientslist']);
+    }
+
+    navigateprofile(){
+          this.router.navigate(['/Doctorprofile']);
+    }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/']);
+  }
+
+
 }

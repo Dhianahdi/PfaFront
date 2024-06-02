@@ -27,11 +27,11 @@
             <a href="javascript:void(0);">Home </a>
 
           </li>
-          <li><a href="/appointment">Appointments</a></li>
+          <li><a (click)="navigateAppointements()">Appointments</a></li>
 
-          <li><a href="/DocAvailable">Schedule Timing</a></li>
-          <li><a href="/patientslist">Patients List</a></li>
-          <li><a href="/questions">Questions</a></li>
+          <li><a (click)="navigateDocAvailable()">Schedule Timing</a></li>
+          <li><a (click)="navigatepatientslist()">Patients List</a></li>
+          <li><a (click)="navigatequestions()">Questions</a></li>
 
         </ul>
       </div>
@@ -110,7 +110,7 @@
             <a class="dropdown-item" href="doctor-dashboard.html">Dashboard</a>
             <a class="dropdown-item" href="Doctorprofile">Profile
               Settings</a>
-            <a class="dropdown-item" href="login.html">Logout</a>
+            <a (click)="logout()" class="dropdown-item">Logout</a>
           </div>
         </li>
 

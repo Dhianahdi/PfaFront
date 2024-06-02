@@ -6,7 +6,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { DocAvailableComponent } from './doc-available/doc-available.component';
-import { DocScheduleComponent } from './doc-schedule/doc-schedule.component';
 import { BookingComponent } from './booking/booking.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
@@ -23,7 +22,8 @@ import { RecordsComponent } from './records/records.component';
 import { PatientslistComponent } from './patientslist/patientslist.component';
 import { SpecialitiesDeatilsComponent } from './specialities-deatils/specialities-deatils.component';
 import { QuestRepComponent } from './quest-rep/quest-rep.component';
-
+import { AuthGuardService } from './auth-gard.service';
+import { EmailVerifiedComponent } from './email-verified/email-verified.component';
 const routes: Routes = [
   { path: '', component: LayoutComponent, children: [
     { path: '', component: HomeComponent },
@@ -31,49 +31,36 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'reset-password', component: ResetPasswordComponent },
+    { path: 'email-verified', component: EmailVerifiedComponent },
   ]
 },
-{ path: '', component: LayoutAdminComponent, children: [
-
-
-
-]
-},
-    { path: '', component: LayoutComponent, children: [
+// { path: '', component: LayoutAdminComponent, children: [
+//   // Routes protégées par le garde admin
+//   { path: 'admin-only-route', component: SomeAdminComponent, canActivate: [AuthGuardService], data: { expectedRole: 'admin' } },
+// ]
+// },
+{ path: '', component: LayoutComponent, children: [
     { path: '', component: HomeComponent },
-    
-
-
-  ]},
-  { path: 'doctor-list', component: DoctorListComponent },   
-   { path: 'specialities-list', component: SpecialitiesListComponent },
-     { path: '', component: LayoutuserComponent, children: [
-  { path: 'search', component: SearchComponent },
-    { path: 'listappointment', component: ListComponent },
-      { path: 'booking', component: BookingComponent },
-       { path: 'DoctorDeatils', component: DoctorDeatilsComponent },
-    { path: 'profile', component: ProfileComponent },
-
-
-
-  ]},
-
-  { path: '', component: LayoutDocComponent, children: [
-  { path: 'appointment', component: AppointmentComponent },
-  { path: 'DocAvailable', component: DocAvailableComponent },
-  //{ path: 'DocSchedule', component: DocScheduleComponent },
-  { path: 'Doctorprofile', component: ProfileComponent },
-  { path: 'records', component: RecordsComponent },
-  { path: 'patientslist', component: PatientslistComponent },
-  { path: 'specialities', component: SpecialitiesDeatilsComponent },
+  ]
+},
+{ path: 'doctor-list', component: DoctorListComponent, canActivate: [AuthGuardService], data: { expectedRole: 'admin' } },   
+{ path: 'specialities-list', component: SpecialitiesListComponent, canActivate: [AuthGuardService], data: { expectedRole: 'admin' } },
+{ path: '', component: LayoutuserComponent, children: [
+  { path: 'search', component: SearchComponent, canActivate: [AuthGuardService], data: { expectedRole: 'patient' } },
+  { path: 'listappointment', component: ListComponent, canActivate: [AuthGuardService], data: { expectedRole: 'patient' } },
+  { path: 'booking', component: BookingComponent, canActivate: [AuthGuardService], data: { expectedRole: 'patient' } },
+  { path: 'DoctorDeatils', component: DoctorDeatilsComponent, canActivate: [AuthGuardService], data: { expectedRole: 'patient' } },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService], data: { expectedRole: 'patient' } },
+]},
+{ path: '', component: LayoutDocComponent, children: [
+  { path: 'appointment', component: AppointmentComponent, canActivate: [AuthGuardService], data: { expectedRole: 'doctor' } },
+  { path: 'DocAvailable', component: DocAvailableComponent, canActivate: [AuthGuardService], data: { expectedRole: 'doctor' } },
+  { path: 'Doctorprofile', component: ProfileComponent, canActivate: [AuthGuardService], data: { expectedRole: 'doctor' } },
+  { path: 'records', component: RecordsComponent, canActivate: [AuthGuardService], data: { expectedRole: 'doctor' } },
+  { path: 'patientslist', component: PatientslistComponent, canActivate: [AuthGuardService], data: { expectedRole: 'doctor' } },
+  { path: 'specialities', component: SpecialitiesDeatilsComponent, canActivate: [AuthGuardService], data: { expectedRole: 'doctor' } },
   { path: 'questions', component: QuestRepComponent },
-
-
-  ]},
-
-
-
-
+]},
 ];
 
 @NgModule({

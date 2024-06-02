@@ -53,6 +53,7 @@ this.getusertById()
 
 
   submitQuestion(): void {
+      console.log('this.questionText: ', this.questionText);
     if (this.questionText == "")
     {
           this.toastr.error('Question is NULL');
@@ -60,11 +61,12 @@ return
   }
 
     const payload = {
+
       userEmail: localStorage.getItem('key'), // Replace with actual user email
       doctorEmail: this.sharedDatas.email, // Replace with actual doctor email
       questionText: this.questionText
     };
-
+      console.log('payload: ', payload);
     this.http.post('http://127.0.0.1:5000/api/questions/add', payload)
       .subscribe(
         () => {

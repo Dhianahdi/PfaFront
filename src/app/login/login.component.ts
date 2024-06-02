@@ -29,15 +29,22 @@ console.log("Form Data",this.formData);
       .subscribe(
         (response: any) => {
           localStorage.setItem('key', this.formData.email);
+          console.log('this.formData.email: ', this.formData.email);
           localStorage.setItem('token', response.token);
+          console.log('response.token: ', response.token);
           localStorage.setItem('role', response.role);
+          console.log('response.role: ', response.role);
           console.log('Signup added successfully:', response);
           if (response.role == "patient") {
           this.router.navigate(['search']);
 
-          } else {
+          } 
+          if (response.role == "doctor") {
           this.router.navigate(['appointment']);
 
+          }
+          if (response.role == "admin"){
+            this.router.navigate(['doctor-list']);
           }
         },
         (error) => {

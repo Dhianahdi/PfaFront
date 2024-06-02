@@ -30,7 +30,7 @@
                     alt="User Image">
                 </a>
                 <div class="profile-det-info">
-                  <h3>Dr. {{ user.nom }} {{ user.prenom }}</h3>
+                  <h3>Dr. {{ user.prenom }} {{ user.nom }}</h3>
                   <div class="patient-details">
 
                   </div>
@@ -47,30 +47,30 @@
                     </a>
                   </li>
                   <li>
-                    <a href="appointments.html">
+                    <a (click)="navigateAppointements()">
                       <i class="fas fa-calendar-check"></i>
                       <span>Appointments</span>
                     </a>
                   </li>
                   <li>
-                    <a href="my-patients.html">
+                    <a (click)="navigatepatientslist()">
                       <i class="fas fa-user-injured"></i>
                       <span>My Patients</span>
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="schedule-timings.html">
                       <i class="fas fa-hourglass-start"></i>
                       <span>Schedule Timings</span>
                     </a>
-                  </li>
+                  </li> -->
                   <li>
-                    <a href="available-timings.html">
+                    <a (click)="navigateDocAvailable()">
                       <i class="fas fa-clock"></i>
                       <span>Available Timings</span>
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="invoices.html">
                       <i class="fas fa-file-invoice"></i>
                       <span>Invoices</span>
@@ -87,21 +87,21 @@
                       <i class="fas fa-star"></i>
                       <span>Reviews</span>
                     </a>
-                  </li>
+                  </li> -->
                   <li>
-                    <a href="chat-doctor.html">
+                    <a (click)="navigatequestions()">
                       <i class="fas fa-comments"></i>
-                      <span>Message</span>
-                      <small class="unread-msg">23</small>
+                      <span>Questions</span>
+                      <small class="unread-msg"></small>
                     </a>
                   </li>
                   <li class="active">
-                    <a href="doctor-profile-settings.html">
+                    <a (click)="navigateprofile()">
                       <i class="fas fa-user-cog"></i>
                       <span>Profile Settings</span>
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="social-media.html">
                       <i class="fas fa-share-alt"></i>
                       <span>Social Media</span>
@@ -112,9 +112,9 @@
                       <i class="fas fa-lock"></i>
                       <span>Change Password</span>
                     </a>
-                  </li>
+                  </li> -->
                   <li>
-                    <a href="login.html">
+                    <a (click)="logout()">
                       <i class="fas fa-sign-out-alt"></i>
                       <span>Logout</span>
                     </a>
@@ -166,7 +166,7 @@
                     <label class="mb-2">First Name <span
                         class="text-danger">*</span></label>
                     <input type="text" class="form-control"
-                      [(ngModel)]="user.nom">
+                      [(ngModel)]="user.prenom">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -174,7 +174,7 @@
                     <label class="mb-2">Last Name <span
                         class="text-danger">*</span></label>
                     <input type="text" class="form-control"
-                      [(ngModel)]="user.prenom">
+                      [(ngModel)]="user.nom">
                   </div>
                 </div>
                 <div class="col-md-6">

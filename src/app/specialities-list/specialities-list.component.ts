@@ -151,5 +151,9 @@ export class SpecialitiesListComponent implements OnInit {
     })
   }
 
+     logout() {
+    localStorage.clear();
+    this.router.navigate(['/']);
+  }
 
 }

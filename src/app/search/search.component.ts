@@ -20,26 +20,14 @@ userLatitude1:any=localStorage.getItem('latitude');
 
   constructor( private router: Router ,private http: HttpClient,private sharedService: SharedServiceService,   ) { }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   ngOnInit(): void {
-     this.http.get<any[]>('http://127.0.0.1:5000/api/specialties')
+    const role = localStorage.getItem('role');
+    console.log('role: ', role);
+     this.http.get<any[]>('http://127.0.0.1:5000/api/specialities')
             .subscribe(
                 (response) => {
           this.specialties = response.map((specialty: any) => specialty.name);
+          console.log('this.specialties: ', this.specialties);
                     console.log (this.specialties);
                 },
                 (error) => {
