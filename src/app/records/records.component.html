@@ -1,0 +1,175 @@
+<div class="main-wrapper">
+
+
+
+
+<div class="breadcrumb-bar-two">
+<div class="container">
+<div class="row align-items-center inner-banner">
+<div class="col-md-12 col-12 text-center">
+<h2 class="breadcrumb-title">Profile</h2>
+<nav aria-label="breadcrumb" class="page-breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item" aria-current="page">Profile</li>
+</ol>
+</nav>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="content">
+<div class="container">
+<div class="row">
+<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar dct-dashbd-lft">
+
+<div class="card widget-profile pat-widget-profile">
+<div class="card-body">
+<div class="pro-widget-content">
+<div class="profile-info-widget">
+<a href="#" class="booking-doc-img">
+<img src="http://127.0.0.1:5000/img/{{   Patient.patient.image }}" alt="User Image">
+</a>
+<div class="profile-det-info">
+<h3>{{   Patient.patient.nom }}  {{   Patient.patient.prenom }}</h3>
+<div class="patient-details">
+<h5><b>Patient ID :</b> PT0016</h5>
+<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {{Patient.patient.email }}</h5>
+</div>
+</div>
+</div>
+</div>
+<div class="patient-info">
+<ul>
+<li>Phone <span>{{ Patient.patient.telephone }}</span></li>
+<li>Age <span>38 Years, {{ Patient.patient.sexe }}</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+</div>
+<div class="col-md-7 col-lg-8 col-xl-9 dct-appoinment">
+<div class="card">
+<div class="card-body pt-0">
+<div class="user-tabs">
+<ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
+
+
+<li class="nav-item">
+<a class="nav-link" href="#medical" data-bs-toggle="tab"><span class="med-records">Medical Records</span></a>
+</li>
+
+</ul>
+</div>
+<div class="tab-content">
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="medical" class="tab-pane fade show active">
+<div>
+<a href="#" class="add-new-btn" data-bs-toggle="modal" data-bs-target="#add_medical_records">Add Medical Records</a>
+</div>
+<div class="card card-table mb-0">
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-hover table-center mb-0">
+<thead>
+<tr>
+<th>ID</th>
+<th>Date </th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr  *ngFor="let medicalRecord of Patient.medicalHistory; let i = index">
+<td><a href="javascript:void(0);">#MR-0010</a></td>
+<td>{{ medicalRecord.date | date: 'dd MMM yyyy' }}</td>
+
+<td>
+<div class="table-action">
+
+<a href="javascript:void(0);"  (click)="openMedicalRecordModal(medicalRecord)" class="btn btn-sm bg-info-light" data-bs-toggle="modal" data-bs-target="#show_medical_records">
+<i class="far fa-eye"></i> View
+</a>
+</div>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+<div class="modal fade custom-modal" id="add_medical_records">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title">Medical Records</h3>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form>
+<div class="modal-body">
+
+<div class="mb-3">
+<label class="mb-2">Description </label>
+<textarea class="form-control"   [(ngModel)]="desc1" name="first" required>  </textarea>
+</div>
+
+<div class="submit-section text-center">
+<button  class="btn btn-primary submit-btn"(click)="onSubmit()">Submit</button>
+<button type="button" class="btn btn-secondary submit-btn" data-bs-dismiss="modal">Cancel</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="modal fade custom-modal" id="show_medical_records">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title">Medical Records</h3>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form>
+<div class="modal-body">
+
+<div class="mb-3">
+<label class="mb-2">Description</label>
+<textarea class="form-control"   [(ngModel)]="desc" name="first"  readonly></textarea>
+</div>
+
+<div class="submit-section text-center">
+<button type="button" class="btn btn-secondary submit-btn" data-bs-dismiss="modal">Cancel</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>

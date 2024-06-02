@@ -20,6 +20,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 import { DocAvailableComponent } from './doc-available/doc-available.component';
+import { ToastrModule } from 'ngx-toastr';
+import { DoctorDeatilsComponent } from './doctor-deatils/doctor-deatils.component';
+import { QuestRepComponent } from './quest-rep/quest-rep.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +31,17 @@ import { DocAvailableComponent } from './doc-available/doc-available.component';
     HeaderComponent,
     FooterComponent,
     AppointmentComponent,
-    ListComponent,
-    BookingComponent,
-    ProfileComponent,
+ListComponent,
+BookingComponent,
+ProfileComponent,
+// DoctorDeatilsComponent,
+QuestRepComponent
 
 ],
 
   imports: [
+       BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,

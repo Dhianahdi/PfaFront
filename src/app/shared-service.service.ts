@@ -1,35 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedServiceService {
-   sharedVariableSubject: any;
+  sharedVariableSubject :any; // Initialiser comme Subject
+
   sharedData1: any;
+  id: any;
   token: any;
 
-  updatetoken(data: any) {
+  updateToken(data: any) {
     this.token = data;
-    console.log( this.token)
+    console.log(this.token);
   }
+
   updateSharedData(data: any) {
     this.sharedData1 = data;
-    console.log( this.sharedData1)
+    console.log(this.sharedData1);
+    // Diffuser les données mises à jour via le Subject
+    this.sharedVariableSubject.next(data);
   }
 
-  // Observable to subscribe to for the response data
+  // Retourne un Observable pour les mises à jour de sharedVariableSubject
   getSharedVariable() {
-
-
-    return this.sharedVariableSubject;
+    return this.sharedData1;
   }
 
-  // Update the sharedVariable with the response data
+  // Met à jour les données partagées
   setSharedVariable(data: any) {
-
-    this.sharedVariableSubject=data;
-
-
+    this.sharedData1=data;
   }
 }

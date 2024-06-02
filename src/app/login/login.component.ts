@@ -32,7 +32,13 @@ console.log("Form Data",this.formData);
           localStorage.setItem('token', response.token);
           localStorage.setItem('role', response.role);
           console.log('Signup added successfully:', response);
-          this.router.navigate(['/search']);
+          if (response.role == "patient") {
+          this.router.navigate(['search']);
+
+          } else {
+          this.router.navigate(['appointment']);
+
+          }
         },
         (error) => {
           alert('Verifier les parametres');

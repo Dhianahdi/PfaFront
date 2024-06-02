@@ -4,11 +4,11 @@
     <div class="container">
       <div class="row align-items-center inner-banner">
         <div class="col-md-12 col-12 text-center">
-          <h2 class="breadcrumb-title">Appointments</h2>
+          <h2 class="breadcrumb-title">Questions</h2>
           <nav aria-label="breadcrumb" class="page-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item" aria-current="page">Appointments</li>
+              <li class="breadcrumb-item" aria-current="page">Questions</li>
             </ol>
           </nav>
         </div>
@@ -20,7 +20,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
-            <div class="profile-sidebar">
+          <div class="profile-sidebar">
             <div class="widget-profile pro-widget-content">
               <div class="profile-info-widget">
                 <a href="#" class="booking-doc-img">
@@ -121,114 +121,70 @@
               </nav>
             </div>
           </div>
+
         </div>
         <div class="col-md-7 col-lg-8 col-xl-9">
-          <div class="appointments">
-              <div class="schedule-header">
-              <label class="mb-2">Date </label>
-              <input class="form-select form-control" id="appt-time"
-                type="date" name="appt-time" value="13:30"
-                [(ngModel)]="appointmentDate"    (change)="getAppointmentsfilter()" />
-            </div>
-             <div class="schedule-header">
-              <label class="mb-2">  </label>
+          <div class="doc-review review-listing">
+            <ul class="comments-list">
+              <li *ngFor="let question of questions">
+                <div class="comment">
+                  <img class="avatar rounded-circle" [src]="question.userImage"
+                    alt="User Image">
+                  <div class="comment-body">
+                    <div class="meta-data">
+                      <span class="comment-author">{{ question.userName
+                        }}</span>
+                      <span class="comment-date">{{ (question.timeDifference) }}
+                        Days ago</span>
+                    </div>
+                    <p class="comment-content">{{ question.questionText }}</p>
+                    <div *ngIf="question.responseText == ''"
+                      class="comment-reply">
+                      <div class="chat-footer">
+                        <div class="input-group">
 
-            </div>
-              <div class="schedule-header">
-              <label class="mb-2">Liste  </label>
+                          <input type="text"         [(ngModel)]="responseText"
 
-            </div>
-         <div class="appointment-list" *ngFor="let appointment of appointmentList">
-              <div class="profile-info-widget">
-                <a href="patient-profile.html" class="booking-doc-img">
-                  <img src="http://127.0.0.1:5000/img/{{  appointment.appointment.user.image }}">
-                </a>
-                <div class="profile-det-info">
-      <h3><a href="patient-profile.html">{{ appointment.appointment.user.nom }} {{ appointment.appointment.user.prenom }}</a></h3>
-                  <div class="patient-details">
-        <h5><i class="far fa-clock"></i> {{ appointment.date }}, {{ appointment.time }}</h5>
-
-                    <h5>
-                      <i class="fas fa-envelope"></i>
-                             <a  class="__cf_email__" >{{ appointment.appointment.user.email }}</a>
-
-                    </h5>
-                    <h5 class="mb-0">
-          <i class="fas fa-phone"></i> {{ appointment.appointment.user.telephone }}
-                    </h5>
+                            class="input-msg-send form-control rounded-pill"
+                            placeholder="Type something">
+                          <button type="button"
+                            class="btn msg-send-btn rounded-pill ms-2"><i
+                            (click)="updateQuestion(question.id)"   class="fab fa-telegram-plane"></i></button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="appointment-action">
-                <a
-                  href="#"
-                  class="btn btn-sm bg-info-light"
-                  data-bs-toggle="modal"
-                  data-bs-target="#appt_details"
-                >
-                  <i class="far fa-eye"></i> View
-                </a>
+                <ul class="comments-reply" *ngIf="question.responseText !== ''">
 
-              </div>
-            </div>
+                  <li>
+                    <div class="comment">
+                      <img class="avatar rounded-circle" alt="User Image"
+                        src="http://127.0.0.1:5000/img/{{ user.image }}">
+                      <div class="comment-body">
+                        <div class="meta-data">
+                          <span class="comment-author"> Dr. {{ user.nom }} {{
+                            user.prenom }}
+                          </span>
+                          <span class="comment-date">Reviewed {{
+                            (question.timeDifference) }} Days ago</span>
+                        </div>
+                        <p class="comment-content">
+                          {{ question.responseText }}
 
+                        </p>
 
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="modal fade custom-modal" id="appt_details">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Appointment Details</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <ul class="info-details">
-          <li>
-            <div class="details-header">
-              <div class="row">
-                <div class="col-md-6">
-                  <span class="title">#APT0001</span>
-                  <span class="text">21 Oct 2023 10:00 AM</span>
-                </div>
-                <div class="col-md-6">
-                  <div class="text-end">
-                    <button
-                      type="button"
-                      class="btn bg-success-light btn-sm"
-                      id="topup_status"
-                    >
-                      Completed
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <span class="title">Status:</span>
-            <span class="text">Completed</span>
-          </li>
-          <li>
-            <span class="title">Confirm Date:</span>
-            <span class="text">29 Jun 2023</span>
-          </li>
-          <li>
-            <span class="title">Paid Amount</span>
-            <span class="text">$450</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>

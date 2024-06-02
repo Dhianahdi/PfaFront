@@ -58,6 +58,8 @@ userLatitude1:any=localStorage.getItem('latitude');
 
           // Calculer la distance entre l'utilisateur et chaque médecin
           response.forEach(doctor => {
+                                console.log("Les médecins  par distance:", doctor.geolocalisation.longitude);
+
             doctor.distance = this.calculateDistance(this.userLongitude, this.userLatitude, doctor.geolocalisation.longitude, doctor.geolocalisation.latitude);
           });
 
@@ -79,25 +81,19 @@ userLatitude1:any=localStorage.getItem('latitude');
     console.log('lat1: ', lat1);
     console.log('lon1: ', lon1);
     // Par exemple, la formule de la distance euclidienne
-     console.log(Math.sqrt(Math.pow(lon2 - lon1, 2) + Math.pow(lat2 - lat1, 2)))
     return Math.sqrt(Math.pow(lon2 - lon1, 2) + Math.pow(lat2 - lat1, 2));
   }
   async getusertById(Id: string) {
-  try {
-    const response = await this.http.get<any>('http://127.0.0.1:5000/api/user/' +  Id).toPromise();
-    this.sharedService.setSharedVariable(response);
+    localStorage.setItem('shared', Id);
     this.router.navigate(['/booking']);
-  } catch (error) {
-    console.error('Error fetching Circuit data:', error);
+
   }
-}  async getusertById1(Id: string) {
-  try {
-    const response = await this.http.get<any>('http://127.0.0.1:5000/api/user/' +  Id).toPromise();
-    this.sharedService.setSharedVariable(response);
+
+  async getusertById1(Id: string) {
+  console.log ("L'ID est : ", Id);
+    localStorage.setItem('shared', Id);
     this.router.navigate(['/DoctorDeatils']);
-  } catch (error) {
-    console.error('Error fetching Circuit data:', error);
-  }
+
 }
 filterFunction(doctor: any, selectedSpecialists: string[]): boolean {
   if(doctor.Specialty)

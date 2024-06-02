@@ -19,6 +19,10 @@ import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { LayoutuserComponent } from './layoutuser/layoutuser.component';
 import { LayoutDocComponent } from './layout-doc/layout-doc.component';
 import { SpecialitiesListComponent } from './specialities-list/specialities-list.component';
+import { RecordsComponent } from './records/records.component';
+import { PatientslistComponent } from './patientslist/patientslist.component';
+import { SpecialitiesDeatilsComponent } from './specialities-deatils/specialities-deatils.component';
+import { QuestRepComponent } from './quest-rep/quest-rep.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children: [
@@ -47,7 +51,9 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
     { path: 'listappointment', component: ListComponent },
       { path: 'booking', component: BookingComponent },
-  { path: 'DoctorDeatils', component: DoctorDeatilsComponent },
+       { path: 'DoctorDeatils', component: DoctorDeatilsComponent },
+    { path: 'profile', component: ProfileComponent },
+
 
 
   ]},
@@ -55,8 +61,12 @@ const routes: Routes = [
   { path: '', component: LayoutDocComponent, children: [
   { path: 'appointment', component: AppointmentComponent },
   { path: 'DocAvailable', component: DocAvailableComponent },
-  { path: 'DocSchedule', component: DocScheduleComponent },
+  //{ path: 'DocSchedule', component: DocScheduleComponent },
   { path: 'Doctorprofile', component: ProfileComponent },
+  { path: 'records', component: RecordsComponent },
+  { path: 'patientslist', component: PatientslistComponent },
+  { path: 'specialities', component: SpecialitiesDeatilsComponent },
+  { path: 'questions', component: QuestRepComponent },
 
 
   ]},
