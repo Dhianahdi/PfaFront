@@ -29,7 +29,8 @@ import { CoreService } from '../core/core.service';
 export class DoctorListComponent implements OnInit {
   formData: any = {};
   doctors: any[] = []; // tableau pour stocker les données des médecins
-  
+    user: any;
+    Email:any;
   displayedColumns: string[] = ['prenom', 'nom', 'email', 'telephone', 'Speciality', 'Action'];
   dataSource!: MatTableDataSource<any>;
 
@@ -42,7 +43,10 @@ export class DoctorListComponent implements OnInit {
     private router : Router
   ) { } // Injectez MatDialog ici
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.Email = localStorage.getItem('key');
+      const response = await this.http.get<any[]>('http://127.0.0.1:5000/api/user/getUserByEmail/' + this.Email).toPromise();
+      this.user = response;
     this.getDoctors(); // appel de la méthode pour récupérer les données des médecins lors de l'initialisation du composant
     //console.log(this.doctors)
   }
@@ -135,6 +139,10 @@ export class DoctorListComponent implements OnInit {
     }
 
     navigateSpecialities(){
+          this.router.navigate(['/specialities-list']);
+    }
+
+    navigateDashboard(){
           this.router.navigate(['/specialities-list']);
     }
   

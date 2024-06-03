@@ -33,6 +33,8 @@ console.log("Form Data",this.formData);
           localStorage.setItem('token', response.token);
           console.log('response.token: ', response.token);
           localStorage.setItem('role', response.role);
+          localStorage.setItem('isVerified', response.isVerified);
+          console.log(' response.isVerified: ',  response.isVerified);
           console.log('response.role: ', response.role);
           console.log('Signup added successfully:', response);
           if (response.role == "patient") {

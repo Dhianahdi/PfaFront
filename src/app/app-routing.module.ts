@@ -24,7 +24,11 @@ import { SpecialitiesDeatilsComponent } from './specialities-deatils/specialitie
 import { QuestRepComponent } from './quest-rep/quest-rep.component';
 import { AuthGuardService } from './auth-gard.service';
 import { EmailVerifiedComponent } from './email-verified/email-verified.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+
 const routes: Routes = [
+      { path: 'error-page', component: ErrorPageComponent },
   { path: '', component: LayoutComponent, children: [
     { path: '', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
@@ -34,17 +38,9 @@ const routes: Routes = [
     { path: 'email-verified', component: EmailVerifiedComponent },
   ]
 },
-// { path: '', component: LayoutAdminComponent, children: [
-//   // Routes protégées par le garde admin
-//   { path: 'admin-only-route', component: SomeAdminComponent, canActivate: [AuthGuardService], data: { expectedRole: 'admin' } },
-// ]
-// },
-{ path: '', component: LayoutComponent, children: [
-    { path: '', component: HomeComponent },
-  ]
-},
 { path: 'doctor-list', component: DoctorListComponent, canActivate: [AuthGuardService], data: { expectedRole: 'admin' } },   
 { path: 'specialities-list', component: SpecialitiesListComponent, canActivate: [AuthGuardService], data: { expectedRole: 'admin' } },
+{ path: 'dashboard-admin', component: DashboardAdminComponent, canActivate: [AuthGuardService], data: { expectedRole: 'admin' } },
 { path: '', component: LayoutuserComponent, children: [
   { path: 'search', component: SearchComponent, canActivate: [AuthGuardService], data: { expectedRole: 'patient' } },
   { path: 'listappointment', component: ListComponent, canActivate: [AuthGuardService], data: { expectedRole: 'patient' } },

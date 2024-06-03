@@ -10,8 +10,11 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const role = localStorage.getItem('role');
-    if (!role) {
-      this.router.navigate(['/']);
+    const isVerified = JSON.parse(localStorage.getItem('isVerified') || 'false');
+    console.log('isVerified: ', isVerified);
+
+    if (!role || !isVerified) {
+      this.router.navigate(['/error-page']);
       return false;
     }
 

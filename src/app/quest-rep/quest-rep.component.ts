@@ -84,7 +84,7 @@ async getQuestionsByDoctorEmail() {
     this.http.put<any>(`http://127.0.0.1:5000/api/questions/${questionId}`, { "responseText":this.responseText}).subscribe(
       () => {
         // Reload the page upon successful update
-        location.reload();
+        this.router.navigate(['/questions']);
       },
       error => {
         console.error('Error updating question:', error);
